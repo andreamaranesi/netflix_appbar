@@ -5,7 +5,7 @@
 
 ### <a href="https://dremardesign.com/netflix_appbar.mp4" target="_blank">WATCH THE VIDEO EXAMPLE </a>
 
-<a href="https://dremardesign.com/netflix_appbar.mp4" target="_blank"><img width="500" height="500" style="object-fit:contain" src="https://dremardesign.com/netflix_appbar.png" /></a>
+<a href="https://dremardesign.com/netflix_appbar.png" target="_blank"><img width="500" height="500" style="object-fit:contain" src="https://dremardesign.com/netflix_appbar.png" /></a>
 
 The package will allow you to simulate the Netflix app menu behavior.
 

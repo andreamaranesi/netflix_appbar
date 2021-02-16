@@ -225,7 +225,7 @@ class _Movies extends State<Movies> {
                                     children: [
                                       Padding(
                                         child: Text(
-                                          "Tv Series -  $j",
+                                          "Movie -  $j",
                                           textAlign: TextAlign.center,
                                           style: movieStyle(17, bold: false),
                                         ),

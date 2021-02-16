@@ -5,7 +5,7 @@
 
 ### <a href="https://dremardesign.com/netflix_appbar.mp4" target="_blank">WATCH THE VIDEO EXAMPLE </a>
 
-<a href="https://dremardesign.com/netflix_appbar.mp4" target="_blank">![](https://raw.githubusercontent.com/andreamaranesi/netflix_appbar/master/netflix_appbar.png)
+<a href="https://dremardesign.com/netflix_appbar.mp4" target="_blank"><img src="https://raw.githubusercontent.com/andreamaranesi/netflix_appbar/master/netflix_appbar.png" style="zoom:50%;" />
 </a>
 
 The package will allow you to simulate the Netflix app menu behavior.
@@ -18,7 +18,7 @@ The class i created is just a simple imitation, so there can be stack memory pro
 
 You need <a target="_blank" href="https://pub.dev/packages/page_transition">**page_transition** </a>(at least version **1.0.0**) and <a target="_blank" href="https://pub.dev/packages/after_layout">**after_layout** </a>(at least version **1.0.5**) in order to use this package.
 
-After you have imported it, you should create your personalized Stateful or Stateless Widget classes. After you did this, on your **main** default function you have to create a **list of objects** and to **return** the **NetflixToolbar** instance.
+After you have imported it, you should create your personalized Stateful or Stateless Widget classes. After you did this, on your **main** default function you have to create a **list of objects** and to **return** the **NetflixAppBar** instance.
 
 - ##### LIST OF OBJECTS
 
@@ -34,12 +34,12 @@ After you have imported it, you should create your personalized Stateful or Stat
 
 
 
-- ##### NetflixToolbar ARGUMENTS
+- ##### NetflixAppBar ARGUMENTS
 
 
 
   ```dart
-   NetflixToolbar(List<DrTextTransitionTitleObject> titles, int duration,
+   NetflixAppBar(List<DrTextTransitionTitleObject> titles, int duration,
         {Widget header,
         double headerHeight = 0,
         Color background = Colors.transparent,
@@ -54,27 +54,27 @@ After you have imported it, you should create your personalized Stateful or Stat
         TextStyle titleStyles = const TextStyle(
           color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         Widget leading,
-      Function(ScrollController, String, NetflixToolbar) onScreenChange})
+      Function(ScrollController, String, NetflixAppBar) onScreenChange})
   ```
 
-  | TITLE               | TYPE                                               | DESCRIPTION                                                  | DEFAULT VALUE                                                |
-  | ------------------- | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | titles              | List<DrTextTransitionTitleObject>                  | The list of objects you initially created                    | null                                                         |
-  | duration            | int                                                | The duration (in milliseconds) of your menu animation        | null                                                         |
-  | header              | Widget                                             | The AppBar header, it's **optional**                         | null                                                         |
-  | headerHeight        | double                                             | The AppBar header height                                     | 0                                                            |
-  | background          | Color                                              | The main color of the Scaffold **NetlixToolbar** will return | Colors.transparent                                           |
-  | appBarColor         | Color                                              | The main color of the AppBar                                 | Colors.purpleAccent.withOpacity(0.7)                         |
-  | dumping             | int                                                | More the value is bigger more the user has to scroll down before the AppBar disappears | 100                                                          |
-  | titleStyles         | TextStyle                                          | The Style you want to set up to your menu titles             | const TextStyle(                           color: Colors.white,                 fontSize: 16,                       fontWeight: FontWeight.bold), |
-  | titlePaddingLeft    | double                                             | The padding left that should have the titles' row            | 16                                                           |
-  | titlePaddingRight   | double                                             | The padding right that should have the titles' row           | 15                                                           |
-  | titleActiveFontSize | double                                             | The font size of the Title Label during a transition         | 20                                                           |
-  | leading             | Widget                                             | The leading AppBar Widget                                    | null                                                         |
-  | pinned              | bool                                               | If you want the AppBar  always fixed on the top set pinned to true | false                                                        |
-  | initialOpacity      | double                                             | The initial and **minimum** opacity of the AppBar            | 0                                                            |
-  | maxOpacity          | double                                             | The max opacity the AppBar can reach while the user scrolls down. AppBar opacity will reach your value following the **dumping** value you set | 0.6                                                          |
-  | onScreenChange      | Function(ScrollController, String, NetflixToolbar) | A function that will allow you to get the control of the current screen | null                                                         |
+| TITLE               | TYPE                                               | DESCRIPTION                                                  | DEFAULT VALUE                                                |
+| ------------------- | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| titles              | List<DrTextTransitionTitleObject>                  | The list of objects you initially created                    | null                                                         |
+| duration            | int                                                | The duration (in milliseconds) of your menu animation        | null                                                         |
+| header              | Widget                                             | The AppBar header, it's **optional**                         | null                                                         |
+| headerHeight        | double                                             | The AppBar header height                                     | 0                                                            |
+| background          | Color                                              | The main color of the Scaffold **NetlixToolbar** will return | Colors.transparent                                           |
+| appBarColor         | Color                                              | The main color of the AppBar                                 | Colors.purpleAccent.withOpacity(0.7)                         |
+| dumping             | int                                                | More the value is bigger more the user has to scroll down before the AppBar disappears | 100                                                          |
+| titleStyles         | TextStyle                                          | The Style you want to set up to your menu titles             | const TextStyle(                           color: Colors.white,                 fontSize: 16,                       fontWeight: FontWeight.bold), |
+| titlePaddingLeft    | double                                             | The padding left that should have the titles' row            | 16                                                           |
+| titlePaddingRight   | double                                             | The padding right that should have the titles' row           | 15                                                           |
+| titleActiveFontSize | double                                             | The font size of the Title Label during a transition         | 20                                                           |
+| leading             | Widget                                             | The leading AppBar Widget                                    | null                                                         |
+| pinned              | bool                                               | If you want the AppBar  always fixed on the top set pinned to true | false                                                        |
+| initialOpacity      | double                                             | The initial and **minimum** opacity of the AppBar            | 0                                                            |
+| maxOpacity          | double                                             | The max opacity the AppBar can reach while the user scrolls down. AppBar opacity will reach your value following the **dumping** value you set | 0.6                                                          |
+| onScreenChange      | Function(ScrollController, String, NetflixToolbar) | A function that will allow you to get the control of the current screen | null                                                         |
 
 
 
@@ -96,7 +96,7 @@ After you have imported it, you should create your personalized Stateful or Stat
           fontSize: 18,
           fontWeight: FontWeight.bold);
 
-      instance = NetflixToolbar(
+      instance = NetflixAppBar(
         titles,
         milliseconds,
         initialOpacity: 0.3,
@@ -107,10 +107,10 @@ After you have imported it, you should create your personalized Stateful or Stat
         appBarColor: Colors.black,
         background: Colors.black,
         onScreenChange:
-            (ScrollController controller, String slug, NetflixToolbar instance) {
+            (ScrollController controller, String slug, NetflixAppBar instance) {
           print("Controller received correctly \n We are on $slug screen");
           this.currentSlug = slug;
-          this.instance = NetflixToolbar.getInstance();
+          this.instance = NetflixAppBar.getInstance();
           var newTitles = this.instance.titles;
 
           //....
@@ -125,7 +125,7 @@ After you have imported it, you should create your personalized Stateful or Stat
 
   ## IMPORTANT
 
-  after the **first** screen transition the class that wraps NetflixToolbar instance will be **disposed**, so be careful.
+  after the **first** screen transition the class that wraps NetflixAppBar instance will be **disposed**, so be careful.
 
 
 
@@ -135,17 +135,17 @@ After you have imported it, you should create your personalized Stateful or Stat
 
   - #### getInstance()
 
-    NetlixToolbar.getInstance() will return the current NetflixToolbar instance. So you can get info about current titles, attributes, and so on
+    NetflixAppBar.getInstance() will return the current NetflixAppBar instance. So you can get info about current titles, attributes, and so on
 
   - #### notify()
 
-    NetflixToolbar.notify() will allow you to update graphical elements on the current displayed screen
+    NetflixAppBar.notify() will allow you to update graphical elements on the current displayed screen
 
   - #### goBack()
 
-    NetflixToolbar.goBack() will allow you to return to the previous screen
+    NetflixAppBar.goBack() will allow you to return to the previous screen
 
-    ####
+
 
 
 
@@ -167,19 +167,19 @@ After you have imported it, you should create your personalized Stateful or Stat
 
   ```
 
-  | TITLE          | TYPE                              | DESCRIPTION                                                  | DEFAULT VALUE |
-  | -------------- | --------------------------------- | ------------------------------------------------------------ | ------------- |
-  | name           | String                            | The title value                                              | null          |
-  | heroTag        | String                            | This is the label slug, it allows to the app to use it as an Hero Widget tag for the animations | null          |
-  | function       | Widget                            | This is the Widget you want to show up when a user clicks on the label. If you set an **overrideAction** function then you can set the **function** property to null | null          |
-  | newTitles      | List<DrTextTransitionTitleObject> | The list of titles you want to show up when you click on that specific title | null          |
-  | personalized   | bool                              | If you set personalized to true it means you want to create a your own Widget for that title on the AppBar. The default widget is an Animated Text View | false         |
-  | overrideWidget | Widget                            | If personalized is true you must specify an overrideWidget. It is the Widget Flutter will show for that title on the AppBar | null          |
-  | overrideAction | Function                          | It is helpful when you want to trigger a personalized function when a user clicks on that title on the menu | null          |
-  | primaryStyle   | TextStyle                         | The style you want to give to the default TextView widget that shows the title name on the AppBar | null          |
-  | paddingLeft    | double                            | The padding left you want to give to the default TextView widget that shows the title name on the AppBar | 0             |
-  | header         | Widget                            | When a user clicks on the title and you don't set an overrideAction this is the new widget will appear on the top of the AppBar | null          |
-  | headerHeight   | double                            | The header widget height                                     | null          |
+| TITLE          | TYPE                              | DESCRIPTION                                                  | DEFAULT VALUE |
+| -------------- | --------------------------------- | ------------------------------------------------------------ | ------------- |
+| name           | String                            | The title value                                              | null          |
+| heroTag        | String                            | This is the label slug, it allows to the app to use it as an Hero Widget tag for the animations | null          |
+| function       | Widget                            | This is the Widget you want to show up when a user clicks on the label. If you set an **overrideAction** function then you can set the **function** property to null | null          |
+| newTitles      | List<DrTextTransitionTitleObject> | The list of titles you want to show up when you click on that specific title | null          |
+| personalized   | bool                              | If you set personalized to true it means you want to create a your own Widget for that title on the AppBar. The default widget is an Animated Text View | false         |
+| overrideWidget | Widget                            | If personalized is true you must specify an overrideWidget. It is the Widget Flutter will show for that title on the AppBar | null          |
+| overrideAction | Function                          | It is helpful when you want to trigger a personalized function when a user clicks on that title on the menu | null          |
+| primaryStyle   | TextStyle                         | The style you want to give to the default TextView widget that shows the title name on the AppBar | null          |
+| paddingLeft    | double                            | The padding left you want to give to the default TextView widget that shows the title name on the AppBar | 0             |
+| header         | Widget                            | When a user clicks on the title and you don't set an overrideAction this is the new widget will appear on the top of the AppBar | null          |
+| headerHeight   | double                            | The header widget height                                     | null          |
 
 
 

@@ -137,9 +137,9 @@ After you have imported it, you should create your personalized Stateful or Stat
 
     NetflixAppBar.getInstance() will return the current NetflixAppBar instance. So you can get info about current titles, attributes, and so on
 
-- #### getContext()
+  - #### getContext()
 
-  NetflixAppBar.getContext() will return the current NetflixAppBar instance context
+    NetflixAppBar.getContext() will return the current NetflixAppBar instance context
 
   - #### notify()
 

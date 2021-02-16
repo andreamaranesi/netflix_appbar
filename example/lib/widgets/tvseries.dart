@@ -195,7 +195,7 @@ class _Tv extends State<Tv> {
           Padding(
               child: Column(children: [
                 Text(
-                  "Column $i",
+                  "Row $i",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: "Dr3",

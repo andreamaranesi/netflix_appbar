@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       header: switchHeader("tv"),
     ));
     tvTitles.add(new DrTextTransitionTitleObject("Movies", "movies", movies,
-        newTitles: titles, paddingLeft: 30));
+        newTitles: titles, paddingLeft: 100));
   }
 
   Widget switchHeader(String slug) {
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         "assets/images/logo.png",
                       ),
                     ),
-                    padding: EdgeInsets.only(right: 10)),
+                    padding: EdgeInsets.only(right: 40)),
                 mainTitle,
               ])),
           rightWidget
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 },
                               ),
                             ),
-                            padding: EdgeInsets.only(right: 10)),
+                            padding: EdgeInsets.only(right: 40)),
                         mainTitle
                       ])),
               rightWidget,
@@ -190,8 +190,8 @@ class _MyHomePageState extends State<MyHomePage> {
       headerHeight: headerHeight,
       initialOpacity: 0,
       maxOpacity: 1,
-      titlePaddingLeft: 15,
-      titlePaddingRight: 10,
+      titlePaddingLeft: 82,
+      titlePaddingRight: 150,
       dumping: 100,
       titleStyles: titleStyles,
       titleActiveFontSize: 21,

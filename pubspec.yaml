@@ -1,7 +1,7 @@
 name: netflix_appbar
 description: Netflix AppBar Imitation
 version: 0.0.1
-homepage: https://dremardesign.com
+homepage: https://github.com/andreamaranesi/netflix_appbar
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

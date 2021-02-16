@@ -1,3 +1,7 @@
+## 0.0.4
+Added getContext() static function
+New example in which i use the overrideAction attribute
+
 ## 0.0.3
 Changes to increase pub points
 

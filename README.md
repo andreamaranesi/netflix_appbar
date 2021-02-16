@@ -137,6 +137,10 @@ After you have imported it, you should create your personalized Stateful or Stat
 
     NetflixAppBar.getInstance() will return the current NetflixAppBar instance. So you can get info about current titles, attributes, and so on
 
+- #### getContext()
+
+  NetflixAppBar.getContext() will return the current NetflixAppBar instance context
+
   - #### notify()
 
     NetflixAppBar.notify() will allow you to update graphical elements on the current displayed screen
@@ -218,7 +222,7 @@ After you have imported it, you should create your personalized Stateful or Stat
 
 ## WEB IMPLEMENTATION
 
-### <a href="https://dremardesign.com/prove" target="_blank">CLICK HERE</a> to see a web example
+### <a href="http://dremardesign.com/prove" target="_blank">CLICK HERE</a> to see a web example
 
 
 

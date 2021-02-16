@@ -60,6 +60,26 @@ class _MyHomePageState extends State<MyHomePage> {
       tv,
       newTitles: titles,
       header: switchHeader("tv"),
+      overrideAction: (){
+        showDialog(
+            context: NetflixAppBar.getContext(),
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Overrided Action"),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text(
+                      "OK",
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ],
+              );
+            });
+      }
     ));
     tvTitles.add(new DrTextTransitionTitleObject("Movies", "movies", movies,
         newTitles: titles, paddingLeft: 30));

@@ -94,6 +94,11 @@ class NetflixAppBar extends StatefulWidget {
     if (instance != null) instance.previousPage();
   }
 
+  static BuildContext getContext() {
+    if (instance != null) return instance.context;
+    return null;
+  }
+
   static NetflixAppBar getInstance() {
     if (instance != null) return instance.widget;
     return null;

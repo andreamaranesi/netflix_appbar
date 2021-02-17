@@ -40,21 +40,22 @@ After you have imported it, you should create your personalized Stateful or Stat
 
   ```dart
    NetflixAppBar(List<DrTextTransitionTitleObject> titles, int duration,
-        {Widget header,
-        double headerHeight = 0,
-        Color background = Colors.transparent,
-        Color appBarColor,
-        int dumping = 100,
-        double titlePaddingLeft = 16,
-        double titlePaddingRight = 15,
-        double titleActiveFontSize = 20,
-        double maxOpacity = 0.6,
-        double initialOpacity = 0,
-        bool pinned = false,
-        TextStyle titleStyles = const TextStyle(
+      {Widget header,
+      double headerHeight = 0,
+      Color background = Colors.transparent,
+      Color appBarColor,
+      int dumping = 100,
+      double titlePaddingLeft = 16,
+      double titlePaddingRight = 15,
+      double titleActiveFontSize = 20,
+      double maxOpacity = 0.6,
+      double initialOpacity = 0,
+      bool pinned = false,
+      TextStyle titleStyles = const TextStyle(
           color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-        Widget leading,
-      Function(ScrollController, String, NetflixAppBar) onScreenChange})
+      Widget leading,
+      Function(ScrollController, String, NetflixAppBar) onScreenChange,
+      MainAxisAlignment mainAxisAlignment})
   ```
 
 | TITLE               | TYPE                                               | DESCRIPTION                                                  | DEFAULT VALUE                                                |
@@ -68,13 +69,14 @@ After you have imported it, you should create your personalized Stateful or Stat
 | dumping             | int                                                | More the value is bigger more the user has to scroll down before the AppBar disappears | 100                                                          |
 | titleStyles         | TextStyle                                          | The Style you want to set up to your menu titles             | const TextStyle(                           color: Colors.white,                 fontSize: 16,                       fontWeight: FontWeight.bold), |
 | titlePaddingLeft    | double                                             | The padding left that should have the titles' row            | 16                                                           |
-| titlePaddingRight   | double                                             | The padding right that should have the titles' row           | 15                                                           |
+| titlePaddingRight   | double                                             | The padding right that should have the title row             | 15                                                           |
 | titleActiveFontSize | double                                             | The font size of the Title Label during a transition         | 20                                                           |
 | leading             | Widget                                             | The leading AppBar Widget                                    | null                                                         |
 | pinned              | bool                                               | If you want the AppBar  always fixed on the top set pinned to true | false                                                        |
 | initialOpacity      | double                                             | The initial and **minimum** opacity of the AppBar            | 0                                                            |
 | maxOpacity          | double                                             | The max opacity the AppBar can reach while the user scrolls down. AppBar opacity will reach your value following the **dumping** value you set | 0.6                                                          |
 | onScreenChange      | Function(ScrollController, String, NetflixToolbar) | A function that will allow you to get the control of the current screen | null                                                         |
+| mainAxisAlignment   | MainAxisAlignment                                  | AppBar title row mainAxisAlignment                           | MainAxisAlignment.spaceBewteen when titles length is > 2; MainAxisAlignment.start when titles length is <= 2 |
 
 
 
@@ -226,7 +228,7 @@ After you have imported it, you should create your personalized Stateful or Stat
 
 ## WEB IMPLEMENTATION
 
-### <a href="http://dremardesign.com/prove" target="_blank">CLICK HERE</a> to see a web example
+### <a href="https://dremardesign.com/prove" target="_blank">CLICK HERE</a> to see a web example
 
 
 

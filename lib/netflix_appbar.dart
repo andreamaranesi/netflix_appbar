@@ -124,6 +124,7 @@ class NetflixAppBar extends StatefulWidget {
   double titleActiveFontSize;
   double headerHeight;
   Widget header;
+  MainAxisAlignment mainAxisAlignment;
   Function(ScrollController, String, NetflixAppBar) onScreenChange;
 
   NetflixAppBar(List<DrTextTransitionTitleObject> titles, int duration,
@@ -141,7 +142,8 @@ class NetflixAppBar extends StatefulWidget {
       TextStyle titleStyles = const TextStyle(
           color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
       Widget leading,
-      Function(ScrollController, String, NetflixAppBar) onScreenChange}) {
+      Function(ScrollController, String, NetflixAppBar) onScreenChange,
+      MainAxisAlignment mainAxisAlignment}) {
     if (titles == null || titles.isEmpty)
       throw new Exception("NetflixAppBar error: titles cannot be empty!");
     if (appBarColor == null) appBarColor = Colors.purpleAccent.withOpacity(0.7);
@@ -162,6 +164,7 @@ class NetflixAppBar extends StatefulWidget {
     this.leading = leading;
     this.pinned = pinned;
     this.duration = duration;
+    this.mainAxisAlignment = mainAxisAlignment;
 
     if (this.titles[0].header != null) {
       this.header = this.titles[0].header;
@@ -413,9 +416,12 @@ class _NetflixAppBar extends State<NetflixAppBar>
                           Padding(
                               child: Flex(
                                   direction: Axis.horizontal,
-                                  mainAxisAlignment: widget.titles.length > 2
-                                      ? MainAxisAlignment.spaceBetween
-                                      : MainAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      widget.mainAxisAlignment != null
+                                          ? widget.mainAxisAlignment
+                                          : widget.titles.length > 2
+                                              ? MainAxisAlignment.spaceBetween
+                                              : MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     for (int i = 0;

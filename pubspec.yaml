@@ -1,6 +1,6 @@
 name: netflix_appbar
 description: Netflix AppBar Imitation. The package will help you to simulate the Netflix app menu behavior.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/andreamaranesi/netflix_appbar
 
 environment:

@@ -1,10 +1,10 @@
 name: netflix_appbar
 description: Netflix AppBar Imitation. The package will help you to simulate the Netflix app menu behavior.
-version: 0.0.5
+version: 1.0.0
 homepage: https://github.com/andreamaranesi/netflix_appbar
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
 
 dependencies:
@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  page_transition: ">=1.1.0 <=1.1.7+6"
-  after_layout: ">=1.0.5 <=1.0.7+2"
+  page_transition: ">=1.1.0 <=2.2.0"
+  after_layout: ">=1.0.5 <=1.1.0"
 
 dev_dependencies:
   flutter_test:
@@ -35,9 +35,13 @@ flutter:
         pluginClass: NetflixAppbarPlugin
       ios:
         pluginClass: NetflixAppbarPlugin
+      windows:
+        pluginClass: NetflixAppbarPlugin
       web:
         pluginClass: NetflixAppbarWeb
         fileName: netflix_appbar_web.dart
+
+
 
 
   # To add assets to your plugin package, add an assets section, like this:

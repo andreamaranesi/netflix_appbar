@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  page_transition: ^1.1.7+6
-  after_layout: ^1.0.7+2
-  provider: ^4.3.3
+  page_transition: ^2.0.2
+  after_layout: ^1.1.0
+  provider: ^5.0.0
 
   netflix_appbar:
     # When depending on this package from a real application you should use:

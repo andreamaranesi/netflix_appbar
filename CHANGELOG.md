@@ -1,3 +1,6 @@
+## 1.0.0
+Added Null Safety and Windows/Linux/Macos Support
+
 ## 0.0.5
 Added mainAxisAlignment attribute to NetflixAppBar class.
 

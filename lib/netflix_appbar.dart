@@ -9,35 +9,32 @@ import 'package:page_transition/page_transition.dart';
 class DrTextTransitionTitleObject {
   String _name, _heroTag;
   Widget _function;
-  Widget _before;
-  bool _personalized;
-  Widget _overrideWidget;
-  Function _overrideAction;
-  Widget header;
-  TextStyle style;
-  double headerHeight;
-  double paddingLeft;
+  Widget? _before;
+  late bool _personalized;
+  Widget? _overrideWidget;
+  Function? _overrideAction;
+  Widget? header;
+  TextStyle? style;
+  double? headerHeight;
+  late double paddingLeft;
 
-  List<DrTextTransitionTitleObject> newTitles;
+  List<DrTextTransitionTitleObject>? newTitles;
 
-  DrTextTransitionTitleObject(String name, String heroTag, Widget function,
-      {List<DrTextTransitionTitleObject> newTitles,
+  DrTextTransitionTitleObject(this._name, this._heroTag, this._function,
+      {List<DrTextTransitionTitleObject>? newTitles,
       bool personalized = false,
-      Widget overrideWidget,
-      Function overrideAction,
-      TextStyle style,
-      Widget header,
-      double headerHeight,
+      Widget? overrideWidget,
+      Function? overrideAction,
+      TextStyle? style,
+      Widget? header,
+      double? headerHeight,
       double paddingLeft = 0}) {
-    this._name = name;
-    this._function = function;
     this._personalized = personalized;
     this._overrideWidget = overrideWidget;
     this._overrideAction = overrideAction;
     if (this._personalized == true && this._overrideWidget == null)
       throw new Exception(
           "NetflixAppBar Exception: you can't set title as personalized but it's overrideWidget property as null");
-    this._heroTag = heroTag;
     this.newTitles = newTitles;
     this.headerHeight = headerHeight;
     this.header = header;
@@ -45,7 +42,7 @@ class DrTextTransitionTitleObject {
     this.style = style;
   }
 
-  set before(Widget before) => this._before = before;
+  set before(Widget? before) => this._before = before;
 
   set current(Widget current) => this._function = current;
 
@@ -53,19 +50,17 @@ class DrTextTransitionTitleObject {
 
   bool get personalized => this._personalized;
 
-  Widget get overrideWidget => this._overrideWidget;
+  Widget? get overrideWidget => this._overrideWidget;
 
-  Function get overrideAction => this._overrideAction;
+  Function? get overrideAction => this._overrideAction;
 
-  set personalized(bool personalized) => this._personalized = personalized;
-
-  set overrideWidget(Widget overrideWidget) =>
+  set overrideWidget(Widget? overrideWidget) =>
       this._overrideWidget = overrideWidget;
 
-  set overrideAction(Function overrideAction) =>
+  set overrideAction(Function? overrideAction) =>
       this._overrideAction = overrideAction;
 
-  Widget get before => this._before;
+  Widget? get before => this._before;
 
   String get heroTag => this._heroTag;
 
@@ -79,7 +74,7 @@ class DrTextTransitionTitleObject {
 /// @param mainImageUrl: The image in the FlexibleSpaceBar
 /// @param titles: The titles to display associated to relative functions
 /// @author Andrea Maranesi
-/// @version 1.0
+/// @version 2.0
 
 // ignore: must_be_immutable
 class NetflixAppBar extends StatefulWidget {
@@ -91,47 +86,46 @@ class NetflixAppBar extends StatefulWidget {
   }
 
   static void goBack() {
-    if (instance != null) instance.previousPage();
+    instance.previousPage();
   }
 
-  static BuildContext getContext() {
-    if (instance != null) return instance.context;
-    return null;
+  static BuildContext? getContext() {
+    return instance.context;
   }
 
   static NetflixAppBar getInstance() {
-    if (instance != null) return instance.widget;
-    return null;
+    return instance.widget;
   }
 
   static void notify() {
-    if (instance != null) instance.notify();
+    instance.notify();
   }
 
   static Queue<List<DrTextTransitionTitleObject>> previousTitles = new Queue();
 
-  Color background, appBarColor;
+  Color? background;
+  Color? appBarColor;
   List<DrTextTransitionTitleObject> titles;
-  TextStyle titleStyles;
-  Widget leading;
+  late TextStyle titleStyles;
+  Widget? leading;
   int duration;
-  int dumping;
-  bool pinned;
-  double maxOpacity;
-  double initialOpacity;
-  double titlePaddingLeft;
-  double titlePaddingRight;
-  double titleActiveFontSize;
-  double headerHeight;
-  Widget header;
-  MainAxisAlignment mainAxisAlignment;
-  Function(ScrollController, String, NetflixAppBar) onScreenChange;
+  late int dumping;
+  late bool pinned;
+  late double maxOpacity;
+  late double initialOpacity;
+  late double titlePaddingLeft;
+  late double titlePaddingRight;
+  late double titleActiveFontSize;
+  late double headerHeight;
+  Widget? header;
+  MainAxisAlignment? mainAxisAlignment;
+  Function(ScrollController, String, NetflixAppBar)? onScreenChange;
 
-  NetflixAppBar(List<DrTextTransitionTitleObject> titles, int duration,
-      {Widget header,
+  NetflixAppBar(this.titles, this.duration,
+      {Widget? header,
       double headerHeight = 0,
-      Color background = Colors.transparent,
-      Color appBarColor,
+      Color? background = Colors.transparent,
+      Color? appBarColor,
       int dumping = 100,
       double titlePaddingLeft = 16,
       double titlePaddingRight = 15,
@@ -141,10 +135,10 @@ class NetflixAppBar extends StatefulWidget {
       bool pinned = false,
       TextStyle titleStyles = const TextStyle(
           color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-      Widget leading,
-      Function(ScrollController, String, NetflixAppBar) onScreenChange,
-      MainAxisAlignment mainAxisAlignment}) {
-    if (titles == null || titles.isEmpty)
+      Widget? leading,
+      Function(ScrollController, String, NetflixAppBar)? onScreenChange,
+      MainAxisAlignment? mainAxisAlignment}) {
+    if (titles.isEmpty)
       throw new Exception("NetflixAppBar error: titles cannot be empty!");
     if (appBarColor == null) appBarColor = Colors.purpleAccent.withOpacity(0.7);
 
@@ -172,7 +166,7 @@ class NetflixAppBar extends StatefulWidget {
     }
   }
 
-  static _NetflixAppBar instance;
+  static late _NetflixAppBar instance;
 
   @override
   State<StatefulWidget> createState() {
@@ -199,14 +193,14 @@ class _NetflixAppBar extends State<NetflixAppBar>
           ? -1
           : value;
 
-  get dumpingPercentage => this._dumpingPercentage;
+  double get dumpingPercentage => this._dumpingPercentage;
 
   double get getToolbarHeight => (kToolbarHeight + this.paddingTop);
 
   bool onAnimation = false;
   bool pause = false;
 
-  Widget firstChild, secondChild;
+  Widget? firstChild, secondChild;
 
   int onTransition = -1;
   double lastPos = 0;
@@ -214,7 +208,7 @@ class _NetflixAppBar extends State<NetflixAppBar>
   double _dumpingPercentage = 0;
   ScrollController controller = new ScrollController();
 
-  Color appBarColor;
+  Color? appBarColor;
 
   bool firstScroll = true;
 
@@ -311,7 +305,7 @@ class _NetflixAppBar extends State<NetflixAppBar>
           : perc <= widget.initialOpacity
               ? widget.initialOpacity
               : perc;
-      this.appBarColor = widget.appBarColor.withOpacity(perc);
+      this.appBarColor = widget.appBarColor!.withOpacity(perc);
     });
   }
 
@@ -351,7 +345,7 @@ class _NetflixAppBar extends State<NetflixAppBar>
   Widget build(BuildContext context) {
     if (this.firstChild == null) {
       this.firstChild =
-          this.pause ? widget.titles[0].before : widget.titles[0].current;
+          this.pause ? widget.titles[0].before! : widget.titles[0].current;
       this.secondChild = widget.titles[0].current;
     }
 
@@ -383,8 +377,8 @@ class _NetflixAppBar extends State<NetflixAppBar>
                           duration:
                               Duration(milliseconds: this.oneThirdDuration),
                           secondCurve: Curves.linear,
-                          firstChild: firstChild,
-                          secondChild: secondChild,
+                          firstChild: firstChild!,
+                          secondChild: secondChild!,
                           crossFadeState: this.pause
                               ? CrossFadeState.showFirst
                               : CrossFadeState.showSecond,
@@ -412,13 +406,13 @@ class _NetflixAppBar extends State<NetflixAppBar>
                         toolbarHeight: kToolbarHeight + widget.headerHeight,
                         backgroundColor: this.appBarColor,
                         title: Column(children: [
-                          if (widget.header != null) widget.header,
+                          if (widget.header != null) widget.header!,
                           Padding(
                               child: Flex(
                                   direction: Axis.horizontal,
                                   mainAxisAlignment:
                                       widget.mainAxisAlignment != null
-                                          ? widget.mainAxisAlignment
+                                          ? widget.mainAxisAlignment!
                                           : widget.titles.length > 2
                                               ? MainAxisAlignment.spaceBetween
                                               : MainAxisAlignment.start,
@@ -432,7 +426,7 @@ class _NetflixAppBar extends State<NetflixAppBar>
                                             onTap: () {
                                               var $this = widget.titles[i];
                                               if ($this.overrideAction != null)
-                                                $this.overrideAction();
+                                                $this.overrideAction!();
                                               else {
                                                 if (i != 0 &&
                                                     this.onTransition == -1) {
@@ -458,10 +452,10 @@ class _NetflixAppBar extends State<NetflixAppBar>
                                                             widget.titles);
                                                     if ($this.newTitles !=
                                                             null &&
-                                                        $this.newTitles
+                                                        $this.newTitles!
                                                             .isNotEmpty) {
                                                       titles =
-                                                          ($this.newTitles);
+                                                          ($this.newTitles!);
                                                     } else {
                                                       var temp = titles[0];
                                                       titles[0] = titles[i];
@@ -503,12 +497,11 @@ class _NetflixAppBar extends State<NetflixAppBar>
                                                                           this
                                                                               .halfDuration),
                                                                   child: Text(
-                                                                      widget.titles[i].name ??
-                                                                          ""),
+                                                                      widget.titles[i].name),
                                                                   style: widget.titles[0].style != null
                                                                       ? widget
                                                                           .titles[0]
-                                                                          .style
+                                                                          .style!
                                                                       : widget.titleStyles.copyWith(fontSize: this.onTransition == i ? widget.titleActiveFontSize : widget.titleStyles.fontSize, fontWeight: this.onTransition == i ? FontWeight.w600 : FontWeight.w200)))),
                                                   padding: EdgeInsets.only(left: widget.titles[i].paddingLeft)),
                                             )),
@@ -560,6 +553,6 @@ class _NetflixAppBar extends State<NetflixAppBar>
   void afterFirstLayout(BuildContext context) {
     checkController();
     if (widget.onScreenChange != null)
-      widget.onScreenChange(controller, widget.titles[0].heroTag, widget);
+      widget.onScreenChange!(controller, widget.titles[0].heroTag, widget);
   }
 }
